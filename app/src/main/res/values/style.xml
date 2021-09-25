@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="iconLotiffy">
+        <item name="lottie_colorFilter">@color/primary_color</item>
+    </style>
+    <style name="iconTint">
+        <item name="tint">@color/primary_color</item>
+    </style>
+    <style name="textColor">
+        <item name="android:textColor">@color/text_color_light</item>
+    </style>
+    <style name="editTextSearchBar">
+        <item name="android:background">@drawable/bg_search_bar_light</item>
+        <item name="android:textColor">@color/text_color_light</item>
+        <item name="android:textColorHint">@color/text_color_light</item>
+    </style>
+    <style name="textColor.Bold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="textColor.Bold.Center">
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="textColor.Regular">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+    <style name="textColor.Regular.Center">
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="textColor.Thin">
+        <item name="android:fontFamily">@font/roboto_thin</item>
+    </style>
+    <style name="loader">
+        <item name="android:indeterminateTint">@color/primary_color</item>
+    </style>
+    <style name="listItemContainer">
+        <item name="android:background">@drawable/bg_white_corner_radius_top_light</item>
+    </style>
+    <style name="cardColor">
+        <item name="android:src">@drawable/gradient_card_light</item>
+    </style>
+    <style name="tabsLayout">
+        <item name="tabTextColor">@color/text_color_light</item>
+    </style>
+    <style name="imageCircle">
+        <item name="civ_border_color">@color/primary_color</item>
+    </style>
+
+    <style name="fabVavorite">
+        <item name="srcCompat">@drawable/ic_favorite</item>
+        <item name="backgroundTint">@color/primary_color</item>
+        <item name="tint">@color/pink</item>
+    </style>
+
+    <style name="textInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:theme">@style/highlightCursor</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="startIconTint">@color/primary_color</item>
+        <item name="endIconTint">@color/primary_color</item>
+    </style>
+    <style name="menuGlasmorph">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

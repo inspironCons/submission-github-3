@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Github Users App</string>
+    <string name="image_github">Github Icon</string>
+    <string name="image_lines_breaker">Line Image</string>
+    <string name="image_bg_layout_sheet">image_bg_layout_sheet</string>
+    <string name="welcome">Welcome to Github Users App’s</string>
+    <string name="good_night_reviewer">Good Night Reviewer</string>
+    <string name="good_morning_reviewer">Good Morning Reviewer</string>
+    <string name="good_afternoon_reviewer">Good Afternoon Reviewer</string>
+    <string name="good_evening_reviewer">Good Evening Reviewer</string>
+    <string name="lets_find_your_favorite_users">Lets Find Your Favorite Users</string>
+    <string name="repository">Repository</string>
+    <string name="zero_dummy">0</string>
+    <string name="location">Location</string>
+    <string name="company">Company</string>
+    <string name="follower">1%s Follower</string>
+    <string name="following">1%s Following</string>
+    <string name="search_username">Search Username</string>
+    <string name="button_back">button back</string>
+    <string name="avatar_image">avatar image</string>
+    <string name="repository_icon">repository icon</string>
+    <string name="location_icon">location icon</string>
+    <string name="company_icon">company icon</string>
+    <string name="empty_state">empty state</string>
+    <string name="empty_title">NOTHING</string>
+    <string name="empty_desc">looks like your data has not been found..please search username correctly</string>
+    <string name="empty_list_title">Not Found :(</string>
+    <string name="empty_list_desc_followers">this account has no followers</string>
+    <string name="empty_list_desc_followings">this account doesn\'t follow any other github accounts yet</string>
+    <string name="language">Change Language</string>
+    <string name="favorites">Favorites</string>
+    <string name="fab_content_desc">favorite</string>
+    <string name="empty_list_favorite">looks like your list favorite has not been insert</string>
+</resources>

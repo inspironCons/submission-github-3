@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary_color">#2C394B</color>
+    <color name="secondary_color">#090c10</color>
+    <color name="text_color">#F0F0F0</color>
+    <color name="blue_dark">#192743</color>
+    <color name="pink">#F56FAD</color>
+
+    <!-- light theme -->
+    <color name="primary_color_light">#F2F2F2</color>
+    <color name="text_color_light">#4E4E4E</color>
+    <color name="grey_color">#474747</color>
+    <color name="status_bar_light">#D9DCDF</color>
+
+</resources>

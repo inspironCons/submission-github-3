@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github Users App</string>
+    <string name="image_github">Ikon Github</string>
+    <string name="image_lines_breaker">Gambar Garis</string>
+    <string name="image_bg_layout_sheet">gambar latar belakang</string>
+    <string name="welcome">Selamat Datang di Github Users App\'s</string>
+    <string name="good_night_reviewer">Selamat Malam Peninjau</string>
+    <string name="good_morning_reviewer">Selamat Pagi Peninjau</string>
+    <string name="good_afternoon_reviewer">Selamat Siang Peninjau</string>
+    <string name="good_evening_reviewer">Selamat Sore Peninjau</string>
+    <string name="lets_find_your_favorite_users">Ayo Cari Pengguna Github Favoritmu</string>
+    <string name="repository">Penyimpanan</string>
+    <string name="zero_dummy">0</string>
+    <string name="location">Lokasi</string>
+    <string name="company">Perusahaan</string>
+    <string name="follower">1%s Pengikut</string>
+    <string name="following">1%s Mengikuti</string>
+    <string name="search_username">Cari Pengguna</string>
+    <string name="button_back">tombol kembali</string>
+    <string name="avatar_image">gambar akun github</string>
+    <string name="repository_icon">ikon penyimpanan</string>
+    <string name="location_icon">ikon location</string>
+    <string name="company_icon">ikon perusahaan</string>
+    <string name="empty_state">Data Kosong</string>
+    <string name="empty_title">Kosong</string>
+    <string name="empty_desc">ini data apa hatimu kok masih kosong…ayo coba cari dengan benar pada pencarian diatas yaaaaa!!!</string>
+    <string name="empty_list_title">TIDAK DITEMUKAN</string>
+    <string name="empty_list_desc_followers">sepertinya akun ini tidak ada pengikut satupun</string>
+    <string name="empty_list_desc_followings">akun ini belum satupun mengikuti akun github lain</string>
+    <string name="language">Ubah Bahasa</string>
+    <string name="favorites">Favorit</string>
+    <string name="fab_content_desc">favorit</string>
+    <string name="empty_list_favorite">Sepertinya kamu belum memiliki akun yang di favoritkan…silahkan cari terlebih dahulu yaaa</string>
+
+</resources>

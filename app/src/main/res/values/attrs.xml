@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="EmptyStateLayout" format="reference" />
+    <declare-styleable name="EmptyState">
+        <attr name="title" format="string" />
+        <attr name="description" format="string" />
+        <attr name="image" format="integer" />
+    </declare-styleable>
+</resources>
