@@ -14,8 +14,8 @@
     <string name="zero_dummy">0</string>
     <string name="location">Lokasi</string>
     <string name="company">Perusahaan</string>
-    <string name="follower">1%s Pengikut</string>
-    <string name="following">1%s Mengikuti</string>
+    <string name="follower">%s Pengikut</string>
+    <string name="following">%s Mengikuti</string>
     <string name="search_username">Cari Pengguna</string>
     <string name="button_back">tombol kembali</string>
     <string name="avatar_image">gambar akun github</string>
@@ -32,5 +32,8 @@
     <string name="favorites">Favorit</string>
     <string name="fab_content_desc">favorit</string>
     <string name="empty_list_favorite">Sepertinya kamu belum memiliki akun yang di favoritkan…silahkan cari terlebih dahulu yaaa</string>
-
+    <string name="loading_insert">Menyimpan......</string>
+    <string name="success">Berhasil</string>
+    <string name="loading_delete">Menghapus......</string>
+    <string name="button_theme">Button Theme</string>
 </resources>

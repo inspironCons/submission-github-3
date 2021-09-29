@@ -1,10 +1,7 @@
 package com.dicoding.githubusersapp.database.favorite_users
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface IFavoritUsers {
@@ -12,9 +9,12 @@ interface IFavoritUsers {
     fun insert(payload:FavoriteUsersEntity)
 
     @Query("select * from favorite_users")
-    fun getAllFavorite():List<FavoriteUsersEntity>
+    fun getAllFavorite():LiveData<List<FavoriteUsersEntity>>
 
-    @Query("select * from favorite_users where id=:id")
-    fun getFavorite(id:Int):LiveData<FavoriteUsersEntity>
+    @Query("select count(*) from favorite_users where id=:id")
+    fun getFavorite(id:Int):Int
+
+    @Delete
+    fun delete(user:FavoriteUsersEntity)
 
 }

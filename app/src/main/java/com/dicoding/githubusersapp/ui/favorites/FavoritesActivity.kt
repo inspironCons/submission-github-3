@@ -1,5 +1,6 @@
 package com.dicoding.githubusersapp.ui.favorites
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,15 +9,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.githubusersapp.adapter.MainAdapter
 import com.dicoding.githubusersapp.common.GeneralHelper.showEmptyState
 import com.dicoding.githubusersapp.common.GeneralHelper.showLoading
-import com.dicoding.githubusersapp.common.State
 import com.dicoding.githubusersapp.common.ViewModelFactory
+import com.dicoding.githubusersapp.database.favorite_users.FavoriteUsersEntity
 import com.dicoding.githubusersapp.databinding.ActivityFavoritesBinding
+import com.dicoding.githubusersapp.model.Users
+import com.dicoding.githubusersapp.ui.detailuser.DetailActivity
 
 class FavoritesActivity:AppCompatActivity() {
     private var _binding: ActivityFavoritesBinding? = null
     private val binding get() = _binding
     private lateinit var viewModel: FavoritesViewModel
-    private var toast: Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,7 @@ class FavoritesActivity:AppCompatActivity() {
         setContentView(binding?.root)
         viewModel = obtainViewModel(this)
         setListFavorites()
+        onBackNav()
     }
 
     private fun setListFavorites(){
@@ -31,30 +34,24 @@ class FavoritesActivity:AppCompatActivity() {
             val adapter = MainAdapter()
             rvListFavorites.layoutManager = GridLayoutManager(this@FavoritesActivity, 2)
             rvListFavorites.adapter = adapter
-            viewModel.getAllDataFavorites().observe(this@FavoritesActivity,{ result->
-                if(result.state == State.LOADING){
-                    showEmptyState(false,viewEmptyState)
-                    showLoading(true,loader)
-                }
-
-                if(result.state == State.ERROR){
-                    showToas(result.message)
+            showLoading(true,binding?.loader)
+            viewModel.getAllDataFavorites().observe(this@FavoritesActivity,{ favoriteList->
+                showLoading(false,binding?.loader)
+                if(!favoriteList.isNullOrEmpty()){
+                    showEmptyState(false,binding?.viewEmptyState)
+                    val mapList = favoriteList.map{it.toUsers()}
+                    adapter.setItem(mapList)
+                }else{
+                    showEmptyState(true,binding?.viewEmptyState)
                     adapter.setItem(emptyList())
-                    showLoading(false,loader)
-                    showEmptyState(true,viewEmptyState)
                 }
+            })
 
-                if(result.state == State.SUCCESS){
-                    val data = result?.data
-                    if (data != null) {
-                        showEmptyState(false,viewEmptyState)
-                        showLoading(false,loader)
-                        if(result.data.isNotEmpty()){
-                            adapter.setItem(result.data)
-                        }else{
-                            showEmptyState(true,viewEmptyState)
-                        }
-                    }
+            adapter.setOnItemCallback(object:MainAdapter.OnItemCallback{
+                override fun onItemClicked(user: Users) {
+                    val mIntent = Intent(this@FavoritesActivity,DetailActivity::class.java)
+                    mIntent.putExtra(DetailActivity.EXTRA_USERS,user)
+                    startActivity(mIntent)
                 }
             })
         }
@@ -65,15 +62,21 @@ class FavoritesActivity:AppCompatActivity() {
         return ViewModelProvider(activity,factory).get(FavoritesViewModel::class.java)
     }
 
-    private fun showToas(msg:String?){
-        toast?.cancel()
-        toast = Toast.makeText(this,msg,Toast.LENGTH_LONG)
-        toast?.show()
-        showLoading(false,binding?.loader)
 
+    private fun onBackNav() {
+        binding?.btnBack?.setOnClickListener {
+            onBackPressed()
+        }
     }
 
-
+    private fun FavoriteUsersEntity.toUsers():Users{
+        val data = this
+        return Users(
+            id = data.id,
+            username = data.username,
+            avatar = data.avatar
+        )
+    }
 
     override fun onDestroy() {
         super.onDestroy()

@@ -2,13 +2,15 @@ package com.dicoding.githubusersapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.githubusersapp.databinding.ItemFollowsBinding
+import com.dicoding.githubusersapp.helper.UsersDiffCallback
 import com.dicoding.githubusersapp.model.Users
 
 class ListFollowsAdapter:RecyclerView.Adapter<ListFollowsAdapter.ViewHolder>() {
-    private var listFollows:List<Users> = listOf()
+    private var listFollows:ArrayList<Users> = arrayListOf()
     inner class ViewHolder(view: ItemFollowsBinding):RecyclerView.ViewHolder(view.root){
         val username = view.tvUsername
         val avatar = view.avatarProfile
@@ -30,7 +32,10 @@ class ListFollowsAdapter:RecyclerView.Adapter<ListFollowsAdapter.ViewHolder>() {
     override fun getItemCount(): Int = listFollows.size
 
     fun setItem(items:List<Users>){
-        listFollows = items
-        notifyDataSetChanged()
+        val diffCallback = UsersDiffCallback(this.listFollows,items)
+        val diffresult = DiffUtil.calculateDiff(diffCallback)
+        this.listFollows.clear()
+        this.listFollows.addAll(items)
+        diffresult.dispatchUpdatesTo(this)
     }
 }

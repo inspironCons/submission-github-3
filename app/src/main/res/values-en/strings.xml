@@ -13,8 +13,8 @@
     <string name="zero_dummy">0</string>
     <string name="location">Location</string>
     <string name="company">Company</string>
-    <string name="follower">1%s Follower</string>
-    <string name="following">1%s Following</string>
+    <string name="follower">%s Follower</string>
+    <string name="following">%s Following</string>
     <string name="search_username">Search Username</string>
     <string name="button_back">button back</string>
     <string name="avatar_image">avatar image</string>
@@ -31,5 +31,10 @@
     <string name="favorites">Favorites</string>
     <string name="fab_content_desc">favorite</string>
     <string name="empty_list_favorite">looks like your list favorite has not been insert</string>
+    <string name="loading_insert">Saving......</string>
+    <string name="success">Success</string>
+    <string name="loading_delete">Deleting......</string>
+    <string name="button_theme">Button Theme</string>
+
 
 </resources>

@@ -1,20 +1,21 @@
 package com.dicoding.githubusersapp.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.dicoding.githubusersapp.common.ServiceBuilder
+import com.dicoding.githubusersapp.common.SettingsPreferences
 import com.dicoding.githubusersapp.model.Users
 import com.dicoding.githubusersapp.network.users.IUsers
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 
-class HomeViewModel:ViewModel() {
+class HomeViewModel(
+    private val preferences: SettingsPreferences
+):ViewModel() {
     private val listUsers = MutableLiveData<ArrayList<Users>>()
     private val catchErrorMessage = MutableLiveData<String>()
     val getCatchErrorMessage:LiveData<String> get() = catchErrorMessage
     private val request = ServiceBuilder.buildService(IUsers::class.java)
+    private var isDarkMode = false
+
     fun getUsers(search:String?){
         try {
             if (search != null) {
@@ -24,6 +25,7 @@ class HomeViewModel:ViewModel() {
                     val listItem = ArrayList<Users>()
                     for(i in data.indices){
                         val users = Users()
+                        users.id = data[i].id
                         users.username = data[i].login
                         users.avatar = data[i].avatarUrl
                         listItem.add(users)
@@ -31,13 +33,26 @@ class HomeViewModel:ViewModel() {
                     listUsers.postValue(listItem)
                 }
             }
-        }catch (e:HttpException){
-            catchErrorMessage.postValue("${e.message()} - ${e.code()}")
         }catch (e:Exception){
-            catchErrorMessage.postValue(e.localizedMessage)
+            catchErrorMessage.postValue(e.message)
         }
     }
     fun getUsersList():LiveData<ArrayList<Users>>{
         return listUsers
+    }
+
+
+    fun getThemeSettings(): LiveData<Boolean> {
+        return preferences.getThemeSetting().asLiveData()
+    }
+
+    fun sendThemeSetting() {
+        viewModelScope.launch {
+            preferences.saveThemeSetting(isDarkMode)
+        }
+    }
+
+    fun sendMode(darkMode:Boolean){
+        isDarkMode = darkMode
     }
 }

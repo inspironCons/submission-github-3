@@ -47,7 +47,7 @@
     <style name="fabVavorite">
         <item name="srcCompat">@drawable/ic_favorite</item>
         <item name="backgroundTint">@color/primary_color</item>
-        <item name="tint">@color/pink</item>
+        <item name="tint">@color/grey_color</item>
     </style>
     <style name="textInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:theme">@style/highlightCursor</item>
@@ -55,6 +55,16 @@
         <item name="boxBackgroundColor">@android:color/transparent</item>
         <item name="startIconTint">@color/white</item>
         <item name="endIconTint">@color/white</item>
+    </style>
+    <style name="theme_settings_icon">
+        <item name="srcCompat">@drawable/ic_sun</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="menuGlasmorph_layout">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:src">@drawable/bg_button_glassmorph_ative</item>
     </style>
     <style name="menuGlasmorph">
         <item name="android:layout_margin">16dp</item>

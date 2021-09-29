@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface IUsers {
     @GET("search/users")
     suspend fun searchUser(
-        @Query("q") search:String
+        @Query("q") search:String,
     ):UsersSearchResponse
 
     @GET("users/{username}")

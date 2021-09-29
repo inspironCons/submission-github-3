@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.githubusersapp.R
 import com.dicoding.githubusersapp.adapter.ListFollowsAdapter
+import com.dicoding.githubusersapp.common.GeneralHelper.showEmptyState
+import com.dicoding.githubusersapp.common.GeneralHelper.showLoading
 import com.dicoding.githubusersapp.databinding.FragmentFollowsBinding
 import java.util.concurrent.Executors
 
@@ -44,7 +46,7 @@ class ListFollowsFragment: Fragment() {
         rvList.layoutManager = LinearLayoutManager(context)
         adapterList = ListFollowsAdapter()
         val executors = Executors.newSingleThreadExecutor()
-        showEmptyState(true)
+        showEmptyState(true, binding.viewEmptyState)
         shareViewModel.username.observe(viewLifecycleOwner,{ username->
             when(page){
                 0->{
@@ -69,52 +71,37 @@ class ListFollowsFragment: Fragment() {
             toast?.cancel()
             toast = Toast.makeText(context,msg,Toast.LENGTH_LONG)
             toast?.show()
-            showLoading(false)
-            showEmptyState(true)
+            showLoading(false,binding.loader)
+            showEmptyState(true, binding.viewEmptyState)
         })
     }
 
     private fun showDataFollowing() {
-        showLoading(true)
+        showLoading(true,binding.loader)
         shareViewModel.showListFollowing().observe(viewLifecycleOwner,{ followings->
-            showLoading(false)
+            showLoading(false,binding.loader)
+            showEmptyState(false, binding.viewEmptyState)
             if(followings.isNotEmpty()){
                 adapterList.setItem(followings)
             }else{
-                showEmptyState(true)
+                showEmptyState(true, binding.viewEmptyState)
             }
             rvList.adapter = adapterList
         })
     }
 
     private fun showDataFollowers() {
-        showLoading(true)
+        showLoading(true,binding.loader)
         shareViewModel.showListFollowers().observe(viewLifecycleOwner,{followers->
-            showLoading(false)
+            showLoading(false,binding.loader)
+            showEmptyState(false, binding.viewEmptyState)
             if(followers.isNotEmpty()){
                 adapterList.setItem(followers)
             }else{
-                showEmptyState(true)
+                showEmptyState(true,binding.viewEmptyState)
             }
             rvList.adapter = adapterList
         })
-    }
-
-    private fun showEmptyState(state:Boolean){
-        if(state){
-            binding.viewEmptyState.visibility = View.VISIBLE
-        }else{
-            binding.viewEmptyState.visibility = View.GONE
-        }
-    }
-
-    private fun showLoading(show:Boolean){
-        if(show){
-            showEmptyState(false)
-            binding.loader.visibility = View.VISIBLE
-        }else{
-            binding.loader.visibility = View.GONE
-        }
     }
 
     override fun onDestroy() {

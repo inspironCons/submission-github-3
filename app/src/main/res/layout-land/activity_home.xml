@@ -9,6 +9,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            style="@style/menuGlasmorph_layout"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:alpha="0.2"
+            android:contentDescription="@string/button_theme"
+            app:layout_constraintEnd_toStartOf="@+id/layout_btn_menus"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btn_theme"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:contentDescription="@string/button_theme"
+            android:padding="6dp"
+            style="@style/theme_settings_icon"
+            app:layout_constraintEnd_toStartOf="@+id/layout_btn_menus"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/layout_btn_menus"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:alpha="0.2"
@@ -32,27 +52,27 @@
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/ic_github"
+                style="@style/iconTint"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="40dp"
                 android:contentDescription="@string/image_github"
-                android:src="@drawable/ic_github"
-                style="@style/iconTint"/>
+                android:src="@drawable/ic_github" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="90dp"
                 android:layout_marginEnd="32dp"
                 android:layout_toStartOf="@+id/ic_github"
                 android:orientation="vertical">

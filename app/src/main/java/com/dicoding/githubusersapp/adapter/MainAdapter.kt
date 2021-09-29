@@ -2,14 +2,16 @@ package com.dicoding.githubusersapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.githubusersapp.databinding.ItemListUserBinding
+import com.dicoding.githubusersapp.helper.UsersDiffCallback
 import com.dicoding.githubusersapp.model.Users
 
 
 class MainAdapter:RecyclerView.Adapter<MainAdapter.ViewHolder>() {
-    private var users:List<Users> = listOf()
+    private var users:ArrayList<Users> = arrayListOf()
     private lateinit var onItemCallback: OnItemCallback
 
     inner class ViewHolder(view: ItemListUserBinding):RecyclerView.ViewHolder(view.root){
@@ -39,8 +41,11 @@ class MainAdapter:RecyclerView.Adapter<MainAdapter.ViewHolder>() {
     override fun getItemCount(): Int = users.size
 
     fun setItem(items:List<Users>){
-        this.users = items
-        notifyDataSetChanged()
+        val diffCallback = UsersDiffCallback(this.users,items)
+        val diffresult = DiffUtil.calculateDiff(diffCallback)
+        this.users.clear()
+        this.users.addAll(items)
+        diffresult.dispatchUpdatesTo(this)
     }
 
     fun setOnItemCallback(onItemCallback: OnItemCallback){

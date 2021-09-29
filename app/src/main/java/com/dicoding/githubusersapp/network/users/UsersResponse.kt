@@ -7,6 +7,7 @@ data class UsersSearchResponse(
 )
 
 data class Users(
+    @SerializedName("id") var id : Int,
     @SerializedName("login") var login : String,
     @SerializedName("avatar_url") var avatarUrl : String,
 )

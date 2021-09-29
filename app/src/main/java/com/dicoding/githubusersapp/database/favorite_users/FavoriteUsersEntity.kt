@@ -11,18 +11,6 @@ data class FavoriteUsersEntity(
     var id:Int = 0,
     @ColumnInfo(name = "username")
     var username:String,
-    @ColumnInfo(name = "name")
-    var name:String,
     @ColumnInfo(name = "avatar")
-    var avatar:String,
-    @ColumnInfo(name = "company")
-    var company:String,
-    @ColumnInfo(name = "location")
-    var location:String,
-    @ColumnInfo(name = "repository")
-    var repository:Int,
-    @ColumnInfo(name = "follower")
-    var follower:Int,
-    @ColumnInfo(name = "following")
-    var following:Int
+    var avatar:String
 )

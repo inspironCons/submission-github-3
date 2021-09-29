@@ -42,13 +42,19 @@
         <item name="tabTextColor">@color/text_color_light</item>
     </style>
     <style name="imageCircle">
-        <item name="civ_border_color">@color/primary_color</item>
+        <item name="civ_border_color">@color/white</item>
     </style>
 
     <style name="fabVavorite">
         <item name="srcCompat">@drawable/ic_favorite</item>
         <item name="backgroundTint">@color/primary_color</item>
-        <item name="tint">@color/pink</item>
+        <item name="tint">@color/white</item>
+    </style>
+
+    <style name="theme_settings_icon">
+        <item name="srcCompat">@drawable/ic_moon</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
     <style name="textInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -57,6 +63,11 @@
         <item name="boxBackgroundColor">@android:color/transparent</item>
         <item name="startIconTint">@color/primary_color</item>
         <item name="endIconTint">@color/primary_color</item>
+    </style>
+    <style name="menuGlasmorph_layout">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:src">@drawable/bg_button_glassmorph</item>
     </style>
     <style name="menuGlasmorph">
         <item name="android:layout_margin">16dp</item>
